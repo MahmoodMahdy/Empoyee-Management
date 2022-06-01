@@ -1,0 +1,30 @@
+﻿@model IQueryable<WebApplication2.Models.DepartmentVM> 
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+}
+
+<h4>Welcome To Department Section</h4>
+
+<td><a class="btn btn-info" asp-action="Create" asp-controller="Department" style="margin:10px; width:25% ">Create Department</a></td>  
+<table class="table table-bordered table-striped text-center" >
+    <tr>
+        <td class="text-center">Id</td>
+        <td class="text-center">Department Name</td>
+        <td class="text-center">Department Code</td>
+        <td class="text-center">Edit</td>
+        <td class="text-center">Delete</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.DepartmentName</td>
+    <td>@item.DepartmentCode</td>
+    <td><a class="btn btn-success" asp-controller="Department" asp-action="Edit" asp-route-id="@item.Id" >Edit</a></td>
+    <td><a class="btn btn-danger" asp-controller="Department" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+
+</tr>
+    }
+
+</table>

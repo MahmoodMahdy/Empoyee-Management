@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+}
+
+<h2>Welcome To Send Mail </h2>
+
+<form asp-action="SendMail" method="post" class="form-group">
+
+    <label>Title</label>
+    <input type="text" name="title" class="form-control" />
+    <br />
+
+    <label>Message</label>
+   <textarea name="message" class="form-control" rows="4"></textarea>
+    <br />
+
+    <input type="submit" value="Send" class="btn btn-success"  />
+
+
+</form>
+

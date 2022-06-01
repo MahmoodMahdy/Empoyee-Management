@@ -1,0 +1,62 @@
+﻿@model WebApplication2.Models.EmployeeVM
+@{
+    ViewBag.Title = "Delete Employee";
+}
+
+<h2>Delete Employee</h2>
+
+<form asp-controller="Employee" asp-action="Delete" method="post" class="form-group">
+
+    <label asp-for="Name" >Employee Name</label>
+    <input disabled type="text" asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <br /><br />
+
+    <label asp-for="Salary">Employee Salary</label>
+    <input disabled type="text" asp-for="Salary" class="form-control" />
+    <span class="text-danger" asp-validation-for="Salary"></span>
+    <br /><br />
+
+    <label asp-for="Address">Employee Address</label>
+    <input disabled type="text" asp-for="Address" class="form-control" />
+    <span class="text-danger" asp-validation-for="Address"></span>
+    <br /><br />
+
+    <label asp-for="Email">Employee Email</label>
+    <input disabled type="email" asp-for="Email" class="form-control" />
+    <span class="text-danger" asp-validation-for="Email"></span>
+    <br /><br />
+
+
+    <label asp-for="HireDate">Hire Date</label>
+    <input disabled type="date" asp-for="HireDate" class="form-control" />
+    <span class="text-danger" asp-validation-for="HireDate"></span>
+    <br /><br />
+
+
+    <label asp-for="Notes">Notes</label>
+    <textarea disabled asp-for="Notes" class="form-control" rows="4"></textarea>
+    <span class="text-danger" asp-validation-for="Notes"></span>
+    <br /><br />
+
+
+    <label asp-for="DepartmentId">Department</label>
+    <select disabled asp-for="DepartmentId" asp-items="@(SelectList)ViewBag.DepartmentList">
+        <option>Choose Department</option>
+    </select>
+
+    <br /><br />
+
+    <div class="custom-control custom-checkbox">
+        <input disabled type="checkbox" asp-for="IsActive" class="custom-control-input">
+        <label class="custom-control-label" asp-for="IsActive"> Is Active</label>
+    </div>
+    <span class="text-danger" asp-validation-for="IsActive"></span>
+
+    <br />
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </center>
+
+</form>
+

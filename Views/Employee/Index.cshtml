@@ -1,0 +1,51 @@
+﻿@model IQueryable<WebApplication2.Models.EmployeeVM>
+@{
+    ViewBag.Title = "Employee";
+  Layout = "~/Views/Layout/MainLayout.cshtml";
+}
+
+<h4>Welcome To Employee Section</h4>
+
+<td><a class="btn btn-info" asp-action="Create" asp-controller="Employee" style="margin:10px; width:25% ">Create Employee</a></td>
+<table class="table table-bordered table-striped text-center">
+    <tr>
+        <td class="text-center"> Name</td>
+        <td class="text-center"> Photos </td>
+        <td class="text-center"> CV </td>
+        <td class="text-center"> Salary</td>
+        <td class="text-center"> Hire Date</td>
+        <td class="text-center"> Address </td>
+        <td class="text-center"> Email</td>
+        <td class="text-center"> IsActive</td>
+        <td class="text-center"> Notes </td>
+        <td class="text-center"> District </td>
+        <td class="text-center"> Department </td>
+
+        <td class="text-center">Edit</td>
+        <td class="text-center">Delete</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Name</td>
+    <td>@item.Salary</td>
+    <td>@item.HireDate.Date.ToShortDateString()</td>
+    <td>@item.Address</td>
+    <td>@item.Email</td>
+    <td>@item.IsActive</td>
+    <td> @item.Notes </td>
+    <td> @item.DistrictId </td>
+    <td>@item.DepartmentId</td>
+    <td>
+        <img src="~/Files/Photos/@item.PhotoName" width="30" height="30" />
+    </td>
+    <td>
+        <a href="~/Files/Docs/@item.CvName">Download Cv</a>
+    </td>
+    <td><a class="btn btn-success" asp-controller="Employee" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+    <td><a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+
+</tr>
+    }
+
+</table>

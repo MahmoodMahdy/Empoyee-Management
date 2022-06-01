@@ -1,0 +1,26 @@
+﻿@model WebApplication2.Models.DepartmentVM ;
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+}
+
+<h2>Delete Department</h2>
+
+<form asp-action="Delete" asp-controller="Department" method="post" class="form-group">
+
+    <label asp-for="DepartmentName">Department Name </label>
+    <input type="text" asp-for="DepartmentName" class="form-control" />
+    <span class="text-danger" asp-validation-for="DepartmentName"></span>
+    <br />
+
+    <label asp-for="DepartmentCode">Department Code </label>
+    <input type="text" asp-for="DepartmentCode" class="form-control" />
+    <span class="text-danger" asp-validation-for="DepartmentCode"></span>
+    <br />
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </center>
+
+</form>
+
